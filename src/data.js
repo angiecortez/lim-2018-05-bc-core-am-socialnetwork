@@ -20,9 +20,6 @@ const guardaDatos = (user) => {
   .set(usuario)
 };
 
-
-//harias una funcion que almacene los datos
-
 const registerVal = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
