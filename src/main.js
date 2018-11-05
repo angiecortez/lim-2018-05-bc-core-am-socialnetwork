@@ -1,12 +1,12 @@
 const facebook = document.getElementById('facebook');
 const gmail = document.getElementById('gmail');
-//REGISTRO DE USUARIOS
+// REGISTRO DE USUARIOS
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const register = document.getElementById('register');
 
-//LOGUEO DE USUARIOS
+// LOGUEO DE USUARIOS
 const email1 = document.getElementById('email2');
 const password1 = document.getElementById('password2');
 const ingreso = document.getElementById('ingreso');

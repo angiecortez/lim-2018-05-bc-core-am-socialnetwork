@@ -1,10 +1,10 @@
 let config = {
-  apiKey: "AIzaSyAyU-144GII0BR3pdmRcq70rWM_9-fKthY",
-  authDomain: "socialnetwork-proyect.firebaseapp.com",
-  databaseURL: "https://socialnetwork-proyect.firebaseio.com",
-  projectId: "socialnetwork-proyect",
-  storageBucket: "socialnetwork-proyect.appspot.com",
-  messagingSenderId: "1041163805568"
+  apiKey: 'AIzaSyAyU-144GII0BR3pdmRcq70rWM_9-fKthY',
+  authDomain: 'socialnetwork-proyect.firebaseapp.com',
+  databaseURL: 'https://socialnetwork-proyect.firebaseio.com',
+  projectId: 'socialnetwork-proyect',
+  storageBucket: 'socialnetwork-proyect.appspot.com',
+  messagingSenderId: '1041163805568'
 };
 
 firebase.initializeApp(config);
@@ -14,10 +14,10 @@ const guardaDatos = (user) => {
     uid: user.uid,
     nombre: user.displayName,
     email: user.email,
-    foto: user.photoURL,
-  }
+    foto: user.photoURL
+  };
   firebase.database().ref('Users/' + user.uid)
-  .set(usuario)
+    .set(usuario);
 };
 
 const registerVal = (email, password) => {
@@ -30,7 +30,6 @@ const registerVal = (email, password) => {
         email: result.user.email,
         photoURL: 'http://subirimagen.me/uploads/20180725011911.png',
       }
-      console.log(user);
       guardaDatos(user)
       verificar();
   }).catch((error) => {
@@ -38,7 +37,7 @@ const registerVal = (email, password) => {
     let errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
-    });
+  });
 };
 
 const ingresoVal = (email, password) => {
@@ -55,8 +54,7 @@ const ingresoVal = (email, password) => {
 };
 
 const close = () => {
-    firebase.auth().signOut()
-    .then(()=>{
+    firebase.auth().signOut().then(() => {
       alert('Saliendo...');
     }).catch((error) => {
       console.log(error);
@@ -81,7 +79,7 @@ const facebookLogin = () => {
     .then((result) => {
       const user = result.user;
       guardaDatos(user);
-  }).catch((error)=> {
+  }).catch((error) => {
     alert('err'+error.message);
     console.log(error.code);
     console.log(error.message);
@@ -93,7 +91,7 @@ const facebookLogin = () => {
 const gmailLogin = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
-  .then((result)=> {
+    .then((result) => {
     var user = result.user;
     guardaDatos(user);
   });
